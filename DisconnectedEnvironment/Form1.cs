@@ -25,13 +25,29 @@ namespace DisconnectedEnvironment
         private void button1_Click(object sender, EventArgs e)
         {
 
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hRDataSet.empdetails' table. You can move, or remove it, as needed.
             this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
-            
+            // this line of code loads data into the hRDataSet.empdetails table. This would appear in Form1_Load event
+            this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
+            txtCode.Enabled = false;
+            txtName.Enabled = false;
+            txtAddress.Enabled = false;
+            txtState.Enabled = false;
+            txtCountry.Enabled = false;
+            cbDesignation.Enabled = false;
+            cbDepartment.Enabled = false;
+            cbDesignation.Items.Add("MANAGER");
+            cbDesignation.Items.Add("AUTHOR");
+            cbDesignation.Items.Add("Designer");
+            cbDepartment.Items.Add("MARKETING");
+            cbDepartment.Items.Add("FINANCE");
+            cbDepartment.Items.Add("IDD");
+            cmdSave.Enabled = false;
 
         }
     }
