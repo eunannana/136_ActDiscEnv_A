@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace DisconnectedEnvironment
 {
     public partial class Form1 : Form
     {
+        DataTable dt;
+        DataRow dr;
+        string code;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +24,14 @@ namespace DisconnectedEnvironment
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'hRDataSet.empdetails' table. You can move, or remove it, as needed.
+            this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
+            
 
         }
     }
