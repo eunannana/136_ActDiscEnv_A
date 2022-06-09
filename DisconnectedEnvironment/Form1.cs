@@ -11,18 +11,20 @@ using System.Data.SqlClient;
 
 namespace DisconnectedEnvironment
 {
+
     public partial class Form1 : Form
     {
         DataTable dt;
         DataRow dr;
         string code;
+        
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cmdAdd_Click(object sender, EventArgs e)
         {
             cmdSave.Enabled = true;
             txtName.Enabled = true;
@@ -110,6 +112,15 @@ namespace DisconnectedEnvironment
             this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
             cmdAdd.Enabled = true;
             cmdSave.Enabled = false;
+        }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+            string code;
+            code = txtCode.Text;
+            dr = hRDataSet.Tables["empdetails"].Rows.Find(code);
+            dr.Delete();
+            empdetailsTableAdapter.Update(hRDataSet);
         }
     }
 }

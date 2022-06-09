@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.empdetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hRDataSet = new DisconnectedEnvironment.HRDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -60,14 +62,12 @@
             this.cmdAdd = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
-            this.hRDataSet = new DisconnectedEnvironment.HRDataSet();
-            this.empdetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empdetailsTableAdapter = new DisconnectedEnvironment.HRDataSetTableAdapters.empdetailsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empdetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRDataSet)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bindingNavigator1
@@ -108,6 +108,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // empdetailsBindingSource
+            // 
+            this.empdetailsBindingSource.DataMember = "empdetails";
+            this.empdetailsBindingSource.DataSource = this.hRDataSet;
+            // 
+            // hRDataSet
+            // 
+            this.hRDataSet.DataSetName = "HRDataSet";
+            this.hRDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -371,7 +381,7 @@
             this.cmdAdd.TabIndex = 2;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
-            this.cmdAdd.Click += new System.EventHandler(this.button1_Click);
+            this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
             // 
             // cmdSave
             // 
@@ -393,16 +403,7 @@
             this.cmdDelete.TabIndex = 4;
             this.cmdDelete.Text = "Delete";
             this.cmdDelete.UseVisualStyleBackColor = true;
-            // 
-            // hRDataSet
-            // 
-            this.hRDataSet.DataSetName = "HRDataSet";
-            this.hRDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // empdetailsBindingSource
-            // 
-            this.empdetailsBindingSource.DataMember = "empdetails";
-            this.empdetailsBindingSource.DataSource = this.hRDataSet;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // empdetailsTableAdapter
             // 
@@ -425,10 +426,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empdetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRDataSet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empdetailsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
