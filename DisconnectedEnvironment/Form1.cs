@@ -36,6 +36,7 @@ namespace DisconnectedEnvironment
             txtName.Text = "";
             txtAddress.Text = "";
             txtState.Text = "";
+            txtCountry.Text = "";
             cbDesignation.Text = "";
             cbDepartment.Text = "";
 
@@ -43,6 +44,7 @@ namespace DisconnectedEnvironment
             string codeval;
             dt = hRDataSet.Tables["empdetails"];
             len = dt.Rows.Count - 1;
+            dr = dt.Rows[len];
             code = dr["ccode"].ToString();
             codeval = code.Substring(1, 3);
             ctr = Convert.ToInt32(codeval);
